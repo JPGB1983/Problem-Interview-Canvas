@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Interview Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-comments"></i> Problem Interview Canvas</h1>
+                <p>Canvas estructurado para entrevistas de validación de problema</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <form id="problemInterviewForm" class="interview-form">
+                <!-- Información de la Entrevista -->
+                <section class="form-section">
+                    <h2><i class="fas fa-info-circle"></i> Información de la Entrevista</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="proyecto">Proyecto:</label>
+                            <input type="text" id="proyecto" name="proyecto" placeholder="Nombre del proyecto">
+                        </div>
+                        <div class="form-group">
+                            <label for="entrevistador">Entrevistador:</label>
+                            <input type="text" id="entrevistador" name="entrevistador" placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="entrevistado">Entrevistado:</label>
+                            <input type="text" id="entrevistado" name="entrevistado" placeholder="Nombre del entrevistado">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha">Fecha:</label>
+                            <input type="date" id="fecha" name="fecha">
+                        </div>
+                        <div class="form-group">
+                            <label for="duracion">Duración:</label>
+                            <input type="text" id="duracion" name="duracion" placeholder="45 minutos">
+                        </div>
+                        <div class="form-group">
+                            <label>Método:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="metodo" value="presencial"> Presencial</label>
+                                <label><input type="radio" name="metodo" value="video"> Video</label>
+                                <label><input type="radio" name="metodo" value="telefono"> Teléfono</label>
+                                <label><input type="radio" name="metodo" value="online"> Online</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Objetivos de la Entrevista -->
+                <section class="form-section objectives-section">
+                    <h2><i class="fas fa-bullseye"></i> Objetivos de la Entrevista</h2>
+                    <div class="form-group">
+                        <label for="hipotesis">Hipótesis a validar:</label>
+                        <textarea id="hipotesis" name="hipotesis" placeholder="Describe la hipótesis que quieres validar..." rows="3"></textarea>
+                    </div>
+                    <div class="success-criteria">
+                        <div class="criteria-item">
+                            <label>Criterio de éxito:</label>
+                            <div class="criteria-input">
+                                <input type="number" name="criterio_exito" min="1" max="10" value="8">
+                                <span>de</span>
+                                <input type="number" name="total_entrevistados" min="1" max="20" value="10">
+                                <span>entrevistados confirman el problema</span>
+                            </div>
+                        </div>
+                        <div class="criteria-item">
+                            <label>Criterio de fallo:</label>
+                            <div class="criteria-input">
+                                <input type="number" name="criterio_fallo" min="1" max="10" value="5">
+                                <span>de</span>
+                                <input type="number" name="total_entrevistados_fallo" min="1" max="20" value="10">
+                                <span>entrevistados no experimentan el problema</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Perfil del Entrevistado -->
+                <section class="form-section profile-section">
+                    <h2><i class="fas fa-user"></i> Perfil del Entrevistado</h2>
+                    <h3>Información Demográfica</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="edad">Edad:</label>
+                            <input type="number" id="edad" name="edad" placeholder="32">
+                        </div>
+                        <div class="form-group">
+                            <label for="ocupacion">Ocupación:</label>
+                            <input type="text" id="ocupacion" name="ocupacion" placeholder="Gerente de Marketing">
+                        </div>
+                        <div class="form-group">
+                            <label for="ubicacion">Ubicación:</label>
+                            <input type="text" id="ubicacion" name="ubicacion" placeholder="Ciudad, País">
+                        </div>
+                        <div class="form-group">
+                            <label for="sector">Industria/Sector:</label>
+                            <input type="text" id="sector" name="sector" placeholder="Tecnología">
+                        </div>
+                    </div>
+
+                    <h3>Información Relevante</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="experiencia">Experiencia con el tema:</label>
+                            <input type="text" id="experiencia" name="experiencia" placeholder="5 años en marketing digital">
+                        </div>
+                        <div class="form-group">
+                            <label for="rol_decision">Rol en la decisión:</label>
+                            <input type="text" id="rol_decision" name="rol_decision" placeholder="Decision maker">
+                        </div>
+                        <div class="form-group">
+                            <label for="tamano_empresa">Tamaño de empresa/equipo:</label>
+                            <input type="text" id="tamano_empresa" name="tamano_empresa" placeholder="50-100 empleados">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Definición del Problema -->
+                <section class="form-section problem-section">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Definición del Problema</h2>
+                    <div class="form-group">
+                        <label for="problema_central">Problema Central</label>
+                        <p class="helper-text">Describe el problema que crees que experimenta el usuario</p>
+                        <textarea id="problema_central" name="problema_central" placeholder="El usuario tiene dificultades para..." rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Gravedad del Problema</label>
+                        <div class="radio-group severity-group">
+                            <label><input type="radio" name="gravedad" value="critico"> Problema crítico (impide trabajo/vida diaria)</label>
+                            <label><input type="radio" name="gravedad" value="significativo"> Problema significativo (causa molestias frecuentes)</label>
+                            <label><input type="radio" name="gravedad" value="menor"> Problema menor (ocasionalmente molesto)</label>
+                            <label><input type="radio" name="gravedad" value="no_real"> No es un problema real</label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Validación del Problema -->
+                <section class="form-section validation-section">
+                    <h2><i class="fas fa-check-circle"></i> Validación del Problema</h2>
+                    <div class="form-group">
+                        <label>¿Has experimentado este problema?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="experimentado" value="si_frecuente"> Sí, frecuentemente</label>
+                            <label><input type="radio" name="experimentado" value="si_ocasional"> Sí, ocasionalmente</label>
+                            <label><input type="radio" name="experimentado" value="raramente"> Raramente</label>
+                            <label><input type="radio" name="experimentado" value="nunca"> Nunca</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ultima_vez">¿Cuándo fue la última vez que experimentaste este problema?</label>
+                        <input type="text" id="ultima_vez" name="ultima_vez" placeholder="Hace una semana">
+                    </div>
+                    <div class="form-group">
+                        <label for="situacion_especifica">¿Puedes describir una situación específica?</label>
+                        <textarea id="situacion_especifica" name="situacion_especifica" placeholder="La semana pasada cuando..." rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="frustracion">¿Qué tan frustrante es este problema? (1-10)</label>
+                        <div class="slider-container">
+                            <input type="range" id="frustracion" name="frustracion" min="1" max="10" value="5" class="slider">
+                            <div class="slider-labels">
+                                <span>Nada frustrante</span>
+                                <span id="frustracion-value">5</span>
+                                <span>Extremadamente frustrante</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Impacto del Problema -->
+                <section class="form-section impact-section">
+                    <h2><i class="fas fa-chart-line"></i> Impacto del Problema</h2>
+                    <div class="form-group">
+                        <label for="afecta_trabajo">¿Cómo afecta este problema a tu trabajo/vida?</label>
+                        <textarea id="afecta_trabajo" name="afecta_trabajo" placeholder="Describe el impacto general..." rows="3"></textarea>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="impacto_tiempo">Impacto en tiempo:</label>
+                            <input type="text" id="impacto_tiempo" name="impacto_tiempo" placeholder="2 horas extra por semana">
+                        </div>
+                        <div class="form-group">
+                            <label for="impacto_economico">Impacto económico:</label>
+                            <input type="text" id="impacto_economico" name="impacto_economico" placeholder="$500 mensuales">
+                        </div>
+                        <div class="form-group">
+                            <label for="impacto_emocional">Impacto emocional:</label>
+                            <input type="text" id="impacto_emocional" name="impacto_emocional" placeholder="Estrés, frustración">
+                        </div>
+                        <div class="form-group">
+                            <label for="otros_impactos">Otros impactos:</label>
+                            <input type="text" id="otros_impactos" name="otros_impactos" placeholder="Otros efectos">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Has intentado cuantificar este problema?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="cuantificado" value="si"> Sí</label>
+                            <label><input type="radio" name="cuantificado" value="no"> No</label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Soluciones Actuales -->
+                <section class="form-section solutions-section">
+                    <h2><i class="fas fa-tools"></i> Soluciones Actuales</h2>
+                    <div class="form-group">
+                        <label for="como_resuelve">¿Cómo resuelves actualmente este problema?</label>
+                        <textarea id="como_resuelve" name="como_resuelve" placeholder="Describe tu proceso actual..." rows="3"></textarea>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="solucion_principal">Solución Principal:</label>
+                            <input type="text" id="solucion_principal" name="solucion_principal" placeholder="Herramienta o método principal">
+                        </div>
+                        <div class="form-group">
+                            <label for="soluciones_secundarias">Soluciones Secundarias:</label>
+                            <input type="text" id="soluciones_secundarias" name="soluciones_secundarias" placeholder="Otras herramientas o métodos">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Qué herramientas/productos/servicios usas?</label>
+                        <div class="tools-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Herramienta/Servicio</th>
+                                        <th>Frecuencia de Uso</th>
+                                        <th>Satisfacción (1-10)</th>
+                                        <th>Costo</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="toolsTableBody">
+                                    <tr>
+                                        <td><input type="text" name="tool_name_1" placeholder="Nombre de herramienta"></td>
+                                        <td><input type="text" name="tool_frequency_1" placeholder="Diario/Semanal/Mensual"></td>
+                                        <td><input type="number" name="tool_satisfaction_1" min="1" max="10" placeholder="1-10"></td>
+                                        <td><input type="text" name="tool_cost_1" placeholder="$0/mes"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="tool_name_2" placeholder="Nombre de herramienta"></td>
+                                        <td><input type="text" name="tool_frequency_2" placeholder="Diario/Semanal/Mensual"></td>
+                                        <td><input type="number" name="tool_satisfaction_2" min="1" max="10" placeholder="1-10"></td>
+                                        <td><input type="text" name="tool_cost_2" placeholder="$0/mes"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn-add" onclick="addToolRow()">+ Agregar Herramienta</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="frustraciones">¿Qué no te gusta de tus soluciones actuales?</label>
+                        <p class="helper-text">Principales Frustraciones:</p>
+                        <textarea id="frustraciones" name="frustraciones" placeholder="Lista las principales frustraciones con las soluciones actuales..." rows="4"></textarea>
+                    </div>
+                </section>
+
+                <!-- Prioridad y Urgencia -->
+                <section class="form-section priority-section">
+                    <h2><i class="fas fa-flag"></i> Prioridad y Urgencia</h2>
+                    <div class="form-group">
+                        <label>¿Qué tan prioritario es resolver este problema?</label>
+                        <div class="radio-group priority-group">
+                            <label><input type="radio" name="prioridad" value="maxima"> Prioridad máxima (busco solución activamente)</label>
+                            <label><input type="radio" name="prioridad" value="alta"> Alta prioridad (buscaré solución pronto)</label>
+                            <label><input type="radio" name="prioridad" value="media"> Prioridad media (me gustaría solucionarlo)</label>
+                            <label><input type="radio" name="prioridad" value="baja"> Baja prioridad (no es urgente)</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Estarías dispuesto/a a pagar por una solución?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="pagar" value="si_definitivo"> Sí, definitivamente</label>
+                            <label><input type="radio" name="pagar" value="probablemente_si"> Probablemente sí</label>
+                            <label><input type="radio" name="pagar" value="tal_vez"> Tal vez, dependiendo del precio</label>
+                            <label><input type="radio" name="pagar" value="probablemente_no"> Probablemente no</label>
+                            <label><input type="radio" name="pagar" value="definitivamente_no"> Definitivamente no</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rango_precio">Rango de precio que considerarías justo:</label>
+                        <div class="price-input">
+                            <span>$</span>
+                            <input type="number" id="rango_precio" name="rango_precio" placeholder="100">
+                            <span>por</span>
+                            <select name="periodo_precio">
+                                <option value="mes">mes</option>
+                                <option value="año">año</option>
+                                <option value="uso">uso</option>
+                                <option value="licencia">licencia</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Scoring de la Entrevista -->
+                <section class="form-section scoring-section">
+                    <h2><i class="fas fa-star"></i> Scoring de la Entrevista</h2>
+                    <div class="scoring-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Criterio</th>
+                                    <th>Score (1-5)</th>
+                                    <th>Notas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Intensidad del problema</td>
+                                    <td>
+                                        <select name="score_intensidad" class="score-select">
+                                            <option value="">-</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" name="notas_intensidad" placeholder="Notas sobre intensidad"></td>
+                                </tr>
+                                <tr>
+                                    <td>Frecuencia del problema</td>
+                                    <td>
+                                        <select name="score_frecuencia" class="score-select">
+                                            <option value="">-</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" name="notas_frecuencia" placeholder="Notas sobre frecuencia"></td>
+                                </tr>
+                                <tr>
+                                    <td>Willingness to pay</td>
+                                    <td>
+                                        <select name="score_pago" class="score-select">
+                                            <option value="">-</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" name="notas_pago" placeholder="Notas sobre disposición a pagar"></td>
+                                </tr>
+                                <tr>
+                                    <td>Fit con segmento objetivo</td>
+                                    <td>
+                                        <select name="score_segmento" class="score-select">
+                                            <option value="">-</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" name="notas_segmento" placeholder="Notas sobre fit con segmento"></td>
+                                </tr>
+                                <tr>
+                                    <td>Calidad de insights</td>
+                                    <td>
+                                        <select name="score_insights" class="score-select">
+                                            <option value="">-</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" name="notas_insights" placeholder="Notas sobre insights"></td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td><strong>Total</strong></td>
+                                    <td><strong id="total-score">__/25</strong></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Notas Adicionales -->
+                <section class="form-section notes-section">
+                    <h2><i class="fas fa-sticky-note"></i> Notas Adicionales</h2>
+                    <div class="form-group">
+                        <textarea id="notas_adicionales" name="notas_adicionales" placeholder="Cualquier observación adicional, contexto importante, o información que no encaje en las secciones anteriores..." rows="5"></textarea>
+                    </div>
+                </section>
+
+                <!-- Botones de Acción -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Guardar Entrevista</button>
+                    <button type="button" class="btn-secondary" onclick="exportData()">Exportar Datos</button>
+                    <button type="reset" class="btn-tertiary">Limpiar Formulario</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
