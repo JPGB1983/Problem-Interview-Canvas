@@ -26,6 +26,7 @@ body {
 }
 
 .header-content h1 {
+    text-align: center;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     display: flex;
@@ -34,6 +35,7 @@ body {
 }
 
 .header-content p {
+    text-align: center;
     font-size: 1.1rem;
     opacity: 0.9;
 }
